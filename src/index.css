@@ -1,0 +1,201 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* MV1 Futuristic Dark Theme */
+    --background: 0 0% 3%;
+    --foreground: 0 0% 95%;
+
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 0 0% 5%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 0 100% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 95%;
+
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 60%;
+
+    --accent: 0 85% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 0 100% 50%;
+
+    --radius: 0.75rem;
+
+    /* Custom MV1 tokens */
+    --neon-red: 0 100% 50%;
+    --neon-red-glow: 0 100% 50%;
+    --dark-red: 0 85% 35%;
+    --grid-line: 0 0% 15%;
+    --tech-border: 0 70% 45%;
+    
+    /* Gradients */
+    --gradient-red: linear-gradient(135deg, hsl(0, 100%, 50%), hsl(0, 85%, 35%));
+    --gradient-dark: linear-gradient(180deg, hsl(0, 0%, 3%), hsl(0, 0%, 8%));
+    
+    /* Shadows and Glows */
+    --glow-red: 0 0 20px hsla(0, 100%, 50%, 0.5);
+    --shadow-elevated: 0 20px 40px -10px hsla(0, 0%, 0%, 0.7);
+    
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Selection color */
+  ::selection {
+    background-color: hsl(var(--primary) / 0.3);
+    color: hsl(var(--foreground));
+  }
+}
+
+@layer utilities {
+  /* Glow effects */
+  .glow-red {
+    box-shadow: 0 0 20px hsla(0, 100%, 50%, 0.5),
+                0 0 40px hsla(0, 100%, 50%, 0.3);
+  }
+  
+  .glow-red-sm {
+    box-shadow: 0 0 10px hsla(0, 100%, 50%, 0.4);
+  }
+  
+  /* Text gradients */
+  .text-gradient-red {
+    background: linear-gradient(135deg, hsl(0, 100%, 50%), hsl(0, 85%, 60%));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  /* Neon borders */
+  .border-neon {
+    border-color: hsl(var(--neon-red));
+    box-shadow: 0 0 10px hsla(var(--neon-red), 0.5);
+  }
+  
+  /* Animated background grid */
+  .tech-grid {
+    background-image: 
+      linear-gradient(hsl(var(--grid-line)) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--grid-line)) 1px, transparent 1px);
+    background-size: 50px 50px;
+    background-position: center center;
+  }
+  
+  /* Hover scale effect */
+  .hover-scale {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .hover-scale:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Reveal animations */
+  @keyframes reveal-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes reveal-left {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes reveal-right {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes glow-pulse {
+    0%, 100% {
+      box-shadow: 0 0 20px hsla(0, 100%, 50%, 0.5);
+    }
+    50% {
+      box-shadow: 0 0 30px hsla(0, 100%, 50%, 0.8);
+    }
+  }
+  
+  @keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+  
+  .animate-reveal-up {
+    animation: reveal-up 0.6s ease-out forwards;
+  }
+  
+  .animate-reveal-left {
+    animation: reveal-left 0.6s ease-out forwards;
+  }
+  
+  .animate-reveal-right {
+    animation: reveal-right 0.6s ease-out forwards;
+  }
+  
+  .animate-glow-pulse {
+    animation: glow-pulse 2s ease-in-out infinite;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
