@@ -8,10 +8,12 @@ import SuccessCases from "@/components/SuccessCases";
 import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import { GlobalGhostCanvas } from "@/components/GlobalGhostCanvas";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
+      <GlobalGhostCanvas />
       <Navbar />
       <main>
         <Hero />

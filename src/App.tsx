@@ -16,9 +16,15 @@ const App = () => {
   const [showSplash, setShowSplash] = useState(true);
 
   useEffect(() => {
+    // Always start at top when the app loads
+    if (typeof window !== "undefined") {
+      window.scrollTo(0, 0);
+    }
+
     const timer = setTimeout(() => {
       setShowSplash(false);
     }, 2000); // Show splash for 2.0 seconds
+
     return () => clearTimeout(timer);
   }, []);
 
