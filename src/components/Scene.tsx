@@ -9,8 +9,7 @@ function RotatingModel() {
 
     useFrame(() => {
         if (ref.current) {
-            // Rotation based on scroll position with initial offset to face forward
-            // -Math.PI / 2 should rotate it 90 degrees the other way from "backwards"
+            // Mantém a rotação baseada no scroll
             ref.current.rotation.y = -Math.PI / 2 + window.scrollY * 0.002;
         }
     });
@@ -23,9 +22,13 @@ function RotatingModel() {
 }
 
 export function Scene() {
-    const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+    // Mantemos o state apenas para lógica interna do R3F (como desativar OrbitControls)
+    const [isMobile, setIsMobile] = useState(false); // Inicie como false para evitar hydration mismatch se usar SSR, ou true se preferir
 
     useEffect(() => {
+        // Checagem inicial segura
+        setIsMobile(window.innerWidth < 768);
+
         const handleResize = () => {
             setIsMobile(window.innerWidth < 768);
         };
@@ -34,11 +37,21 @@ export function Scene() {
     }, []);
 
     return (
-        <div className="w-full h-[400px] lg:h-[600px] pointer-events-none md:pointer-events-auto">
-            <Canvas camera={{ position: [0, 0, 5], fov: 45 }}>
+        <div className="w-full h-[400px] lg:h-[600px]">
+            <Canvas
+                camera={{ position: [0, 0, 5], fov: 45 }}
+                // SOLUÇÃO: Aplicar pointer-events diretamente no Canvas via Tailwind
+                // Mobile (padrão): pointer-events-none (o toque passa direto p/ o site, permitindo scroll)
+                // Desktop (lg): pointer-events-auto (permite interagir com mouse)
+                className="pointer-events-none lg:pointer-events-auto"
+
+                // Garante que o CSS não bloqueie a ação nativa de arrastar a página no mobile
+                style={{ touchAction: 'pan-y' }}
+            >
                 <Suspense fallback={null}>
                     <RotatingModel />
-                    <OrbitControls enableZoom={false} enableRotate={!isMobile} />
+                    {/* OrbitControls só ativa se não for mobile */}
+                    {!isMobile && <OrbitControls enableZoom={false} />}
                     <Environment preset="city" />
                 </Suspense>
             </Canvas>

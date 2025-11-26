@@ -67,7 +67,7 @@ const Hero = () => {
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="text-left"
+            className="text-center lg:text-left"
           >
             <motion.h1 variants={itemVariants} className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-4 sm:mb-6">
               <span className="text-gradient-red">Transforme Sua Marca</span>
@@ -75,11 +75,11 @@ const Hero = () => {
               <span className="text-foreground">em Autoridade Digital</span>
             </motion.h1>
 
-            <motion.p variants={itemVariants} className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-8 sm:mb-10 max-w-2xl">
+            <motion.p variants={itemVariants} className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-8 sm:mb-10 max-w-2xl mx-auto lg:mx-0">
               Sua história merece ser contada da forma certa
             </motion.p>
 
-            <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 justify-start items-center sm:items-start">
+            <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center">
               <Button
                 variant="hero"
                 size="xl"

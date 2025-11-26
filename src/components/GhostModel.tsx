@@ -55,7 +55,9 @@ export function GhostModel({ scrollProgress }: GhostModelProps) {
         if (!group.current) return;
 
         // Toggle visibility based on scroll progress
-        const visible = scrollProgress > -0.1 && scrollProgress < 1.1;
+        // No mobile, só aparece quando está mais dentro da seção (threshold maior)
+        const visibilityThreshold = isMobile ? 0.15 : 0.05;
+        const visible = scrollProgress > visibilityThreshold && scrollProgress < 1.1;
         group.current.visible = visible;
 
         if (!visible) return;

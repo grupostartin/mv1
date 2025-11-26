@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, useInView, useAnimation, Variant } from "framer-motion";
 
 interface RevealOnScrollProps {
@@ -21,6 +21,15 @@ export const RevealOnScroll = ({
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: "-50px" });
     const mainControls = useAnimation();
+    const [isMobile, setIsMobile] = useState(false);
+
+    // Detecta se é mobile
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth < 768);
+        checkMobile();
+        window.addEventListener("resize", checkMobile);
+        return () => window.removeEventListener("resize", checkMobile);
+    }, []);
 
     useEffect(() => {
         if (isInView) {
@@ -50,6 +59,10 @@ export const RevealOnScroll = ({
                 break;
         }
 
+        // Ajusta duração e delay para mobile (60% mais rápido)
+        const adjustedDuration = isMobile ? duration * 0.4 : duration;
+        const adjustedDelay = isMobile ? delay * 0.4 : delay;
+
         return {
             hidden,
             visible: {
@@ -57,8 +70,8 @@ export const RevealOnScroll = ({
                 x: 0,
                 y: 0,
                 transition: {
-                    duration,
-                    delay,
+                    duration: adjustedDuration,
+                    delay: adjustedDelay,
                     ease: "easeOut",
                 },
             },
