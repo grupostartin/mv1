@@ -4,6 +4,7 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import wellingtonImg from "../assets/wellington.png";
 import hillaryImg from "../assets/hillary.jpg";
 import { RevealOnScroll } from "./RevealOnScroll";
+import { motion } from "framer-motion";
 
 const QuemSomos = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -36,7 +37,7 @@ const QuemSomos = () => {
     {
       nome: "Wellington Júnior",
       cargo: "Sócio, Gestor de Tráfego & Estrategista",
-      descricao: "Atualmente, sócio da agência de marketing MV1, Gestor de Tráfego, planejador e estrategista de marketing. Atuando na área desde 2019.",
+      descricao: "Com uma trajetória iniciada em 2019 no mercado digital, consolidei minha expertise técnica e visão de negócios como Gestor de Tráfego, planejador e estrategista. Atualmente, aplico essa experiência acumulada como sócio da agência de marketing MV1, liderando o desenvolvimento de estratégias integradas e gestão de mídia de alta performance.",
       foto: hillaryImg,
     },
   ];
@@ -58,30 +59,42 @@ const QuemSomos = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 max-w-4xl mx-auto">
           {socios.map((socio, index) => (
-            <RevealOnScroll key={index} delay={index * 0.2} direction={index % 2 === 0 ? "left" : "right"}>
-              <Card
-                className="group bg-card border-2 border-border hover:border-primary rounded-lg overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-2 h-full"
+            <RevealOnScroll 
+              key={index} 
+              delay={index * 0.2} 
+              direction={index % 2 === 0 ? "left" : "right"}
+              width="100%"
+              className="h-full"
+            >
+              <motion.div
+                whileHover={{ y: -10 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                className="h-full"
               >
-                <CardHeader className="text-center pb-4">
-                  <div className="flex justify-center mb-4">
-                    <Avatar className="w-32 h-32 sm:w-40 sm:h-40 border-4 border-primary/20 group-hover:border-primary transition-colors">
-                      <AvatarImage src={socio.foto} alt={socio.nome} className="object-cover" />
-                      <AvatarFallback className="text-2xl sm:text-3xl font-display font-bold bg-primary/10 text-primary">
-                        {socio.nome.split(' ').map(n => n[0]).join('')}
-                      </AvatarFallback>
-                    </Avatar>
-                  </div>
-                  <CardTitle className="text-2xl sm:text-3xl font-display font-semibold text-foreground group-hover:text-primary transition-colors">
-                    {socio.nome}
-                  </CardTitle>
-                  <p className="text-primary font-medium mt-2">{socio.cargo}</p>
-                </CardHeader>
-                <CardContent className="text-center">
-                  <p className="text-muted-foreground leading-relaxed">
-                    {socio.descricao}
-                  </p>
-                </CardContent>
-              </Card>
+                <Card
+                  className="group bg-card border-2 border-border hover:border-primary rounded-lg overflow-hidden hover:shadow-lg hover:shadow-primary/20 h-full"
+                >
+                  <CardHeader className="text-center pb-4">
+                    <div className="flex justify-center mb-4">
+                      <Avatar className="w-32 h-32 sm:w-40 sm:h-40 border-4 border-primary/20 group-hover:border-primary transition-colors duration-300">
+                        <AvatarImage src={socio.foto} alt={socio.nome} className="object-cover" />
+                        <AvatarFallback className="text-2xl sm:text-3xl font-display font-bold bg-primary/10 text-primary">
+                          {socio.nome.split(' ').map(n => n[0]).join('')}
+                        </AvatarFallback>
+                      </Avatar>
+                    </div>
+                    <CardTitle className="text-2xl sm:text-3xl font-display font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
+                      {socio.nome}
+                    </CardTitle>
+                    <p className="text-primary font-medium mt-2">{socio.cargo}</p>
+                  </CardHeader>
+                  <CardContent className="text-center">
+                    <p className="text-muted-foreground leading-relaxed">
+                      {socio.descricao}
+                    </p>
+                  </CardContent>
+                </Card>
+              </motion.div>
             </RevealOnScroll>
           ))}
         </div>

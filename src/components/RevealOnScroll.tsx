@@ -79,7 +79,7 @@ export const RevealOnScroll = ({
     };
 
     return (
-        <div ref={ref} style={{ position: "relative", width, overflow: "hidden" }} className={className}>
+        <div ref={ref} style={{ position: "relative", width }} className={className}>
             <motion.div
                 variants={getVariants() as { hidden: Variant; visible: Variant }}
                 initial="hidden"

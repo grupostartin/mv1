@@ -106,7 +106,7 @@ const Hero = () => {
               stroke="url(#heroChartGradient)"
               strokeWidth="3"
               initial={{ pathLength: 0, opacity: 0 }}
-              animate={{ pathLength: 1, opacity: 0.6 }}
+              animate={{ pathLength: 1, opacity: 0.35 }}
               transition={{ duration: 4, ease: "easeInOut", delay: 0.8 }}
             />
 
@@ -115,7 +115,7 @@ const Hero = () => {
               d="M 0 550 Q 150 500, 300 450 T 600 300 T 900 150 T 1200 50 L 1200 600 L 0 600 Z"
               fill="url(#heroAreaGradient)"
               initial={{ opacity: 0 }}
-              animate={{ opacity: 0.15 }}
+              animate={{ opacity: 0.08 }}
               transition={{ duration: 4, ease: "easeInOut", delay: 1 }}
             />
 
@@ -131,10 +131,10 @@ const Hero = () => {
                 key={i}
                 cx={point.x}
                 cy={point.y}
-                r="6"
+                r="5"
                 fill="#ef4444"
                 initial={{ scale: 0, opacity: 0 }}
-                animate={{ scale: 1, opacity: 0.8 }}
+                animate={{ scale: 1, opacity: 0.6 }}
                 transition={{ duration: 0.8, delay: 0.8 + (i * 0.4) }}
               >
                 <animate
