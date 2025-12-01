@@ -164,7 +164,7 @@ const Hero = () => {
       )}
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-[60] container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Column: Text */}
           <motion.div
@@ -187,7 +187,7 @@ const Hero = () => {
               <Button
                 variant="hero"
                 size="xl"
-                onClick={scrollToContact}
+                onClick={() => window.open('https://wa.me/5531986847895?text=Olá!%20Gostaria%20de%20solicitar%20uma%20proposta.', '_blank')}
                 className="w-full sm:w-auto hover:scale-105 transition-transform duration-300"
               >
                 Solicitar Proposta

@@ -24,7 +24,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-background/95 backdrop-blur-lg border-b border-border" : "bg-transparent"
+      className={`fixed top-0 left-0 right-0 z-[70] transition-all duration-300 ${isScrolled ? "bg-background/95 backdrop-blur-lg border-b border-border" : "bg-transparent"
         }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -47,7 +47,7 @@ const Navbar = () => {
                 {item}
               </button>
             ))}
-            <Button variant="hero" size="lg" onClick={() => scrollToSection("contato")} className="ml-4 hover:scale-105 transition-transform cursor-hover-trigger">
+            <Button variant="hero" size="lg" onClick={() => window.open('https://wa.me/5531986847895?text=Olá!%20Gostaria%20de%20solicitar%20uma%20proposta.', '_blank')} className="ml-4 hover:scale-105 transition-transform cursor-hover-trigger">
               Solicitar Proposta
             </Button>
           </div>
@@ -77,7 +77,7 @@ const Navbar = () => {
                 {item}
               </button>
             ))}
-            <Button variant="hero" size="lg" onClick={() => scrollToSection("contato")} className="w-full mt-4">
+            <Button variant="hero" size="lg" onClick={() => window.open('https://wa.me/5531986847895?text=Olá!%20Gostaria%20de%20solicitar%20uma%20proposta.', '_blank')} className="w-full mt-4">
               Solicitar Proposta
             </Button>
           </div>

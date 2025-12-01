@@ -54,7 +54,7 @@ const Process = () => {
   return (
     <section id="processo" ref={sectionRef} className="py-16 sm:py-20 lg:py-24 bg-background relative overflow-hidden">
       <div className="absolute inset-0 tech-grid opacity-20" />
-      
+
       {/* Animated Chart Background */}
       {isVisible && (
         <motion.div
@@ -159,7 +159,7 @@ const Process = () => {
         </motion.div>
       )}
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-[60]">
         <RevealOnScroll width="100%" className="text-center mb-12 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold mb-4 sm:mb-6">
             <span className="text-gradient-red">Nosso Processo</span>

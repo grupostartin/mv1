@@ -26,40 +26,33 @@ const SuccessCases = () => {
   const cases = [
     {
       icon: TrendingUp,
-      company: "E-commerce de Moda",
-      industry: "Varejo",
-      challenge: "Aumentar vendas online e engajamento nas redes sociais",
-      solution: "Criação de estratégia de conteúdo visual, campanhas de tráfego pago e automação de atendimento",
+      company: "Projeto Azevedo",
+      industry: "Gestão de Tráfego",
+      challenge: "Aumentar visibilidade e gerar leads qualificados através de campanhas estratégicas",
+      solution: "Estratégia completa com 5 anúncios (2 de Engajamento, 2 de Reconhecimento e 1 de Tráfego) durante 3 dias, com investimento de R$120,00",
       results: [
-        { metric: "+250%", label: "Aumento em vendas" },
-        { metric: "+180%", label: "Crescimento de seguidores" },
-        { metric: "3x", label: "ROI em campanhas" },
+        { metric: "17.247", label: "Leads alcançados" },
+        { metric: "21.999", label: "Impressões" },
+        { metric: "41%", label: "Aproveitamento" },
+      ],
+      details: [
+        { label: "Seguidores conquistados", value: "180" },
+        { label: "Cliques no link", value: "57 pessoas" },
+        { label: "Visitas ao perfil", value: "18.820 pessoas" },
+        { label: "Média de lucro por lead", value: "R$10.070,00" },
       ],
       color: "text-primary",
     },
     {
       icon: Target,
-      company: "Clínica Médica",
-      industry: "Saúde",
-      challenge: "Atrair novos pacientes e fortalecer presença digital",
-      solution: "Produção de vídeos educativos, storytelling de marca e gestão de tráfego segmentado",
+      company: "Laboratório Smart",
+      industry: "Comércio de Celulares e Acessórios",
+      challenge: "Problema de baixa conversão e visibilidade na rede",
+      solution: "Tráfego estratégico com anúncios de aumento de visibilidade e conversão, utilizando gravação e roteirização direta com vídeos de alta conversão",
       results: [
-        { metric: "+320%", label: "Novos agendamentos" },
-        { metric: "+150%", label: "Reach orgânico" },
-        { metric: "85%", label: "Taxa de conversão" },
-      ],
-      color: "text-primary",
-    },
-    {
-      icon: Award,
-      company: "Startup Tech",
-      industry: "Tecnologia",
-      challenge: "Construir autoridade e gerar leads qualificados",
-      solution: "Conteúdo técnico estratégico, webinars e automação de funil de vendas",
-      results: [
-        { metric: "+400%", label: "Leads qualificados" },
-        { metric: "+220%", label: "Tráfego orgânico" },
-        { metric: "5x", label: "ROI em marketing" },
+        { metric: "7.554", label: "Alcance" },
+        { metric: "41", label: "Clientes alcançados" },
+        { metric: "4x", label: "ROI" },
       ],
       color: "text-primary",
     },
@@ -69,7 +62,7 @@ const SuccessCases = () => {
     <section id="cases" ref={sectionRef} className="py-16 sm:py-20 lg:py-24 bg-muted/30 relative overflow-hidden">
       <div className="absolute inset-0 tech-grid opacity-10" />
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-[60]">
         <RevealOnScroll width="100%" className="text-center mb-12 sm:mb-16">
           <p className="text-sm uppercase tracking-[0.3em] text-primary mb-4">
             Resultados Reais
@@ -82,7 +75,7 @@ const SuccessCases = () => {
           </p>
         </RevealOnScroll>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto">
           {cases.map((caseItem, index) => {
             const Icon = caseItem.icon;
             return (

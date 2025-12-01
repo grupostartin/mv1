@@ -27,14 +27,14 @@ const Contact = () => {
     {
       icon: PhoneCall,
       title: "Telefone",
-      value: "+55 (11) 99999-0000",
-      href: "tel:+5511999990000",
+      value: "+55 (31) 98684-7895",
+      href: "https://wa.me/5531986847895?text=Olá!%20Gostaria%20de%20mais%20informações.",
     },
     {
       icon: Mail,
       title: "E-mail",
-      value: "contato@mv1.com.br",
-      href: "mailto:contato@mv1.com.br",
+      value: "Agenciamv1company@gmail.com",
+      href: "mailto:Agenciamv1company@gmail.com",
     },
     {
       icon: MapPin,
@@ -52,7 +52,7 @@ const Contact = () => {
     >
       <div className="absolute inset-0 tech-grid opacity-10" />
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-[60]">
         <RevealOnScroll width="100%" className="text-center mb-12 sm:mb-16">
           <p className="text-sm uppercase tracking-[0.3em] text-primary mb-4">
             Pronto para crescer?

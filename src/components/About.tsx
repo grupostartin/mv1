@@ -45,7 +45,7 @@ const About = () => {
       {/* Background decoration */}
       <div className="absolute inset-0 tech-grid opacity-20" />
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-[60]">
         <div className={`text-center mb-12 sm:mb-16 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold mb-4 sm:mb-6">
             <span className="text-gradient-red">Sobre a MV1</span>

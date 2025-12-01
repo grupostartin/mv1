@@ -9,7 +9,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-black border-t border-primary/20 py-12 sm:py-16">
+    <footer className="bg-black border-t border-primary/20 py-12 sm:py-16 relative z-[60]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 mb-8">
           {/* Logo and Description */}
@@ -62,8 +62,8 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-display font-semibold text-foreground mb-4">Contato</h4>
             <div className="space-y-2 text-muted-foreground">
-              <p>contato@mv1marketing.com.br</p>
-              <p>(00) 0000-0000</p>
+              <p>Agenciamv1company@gmail.com</p>
+              <p>(31) 98684-7895</p>
               <p>Belo Horizonte - MG</p>
             </div>
           </div>
